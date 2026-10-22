@@ -1,0 +1,158 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Repaso de respuestas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap">
+<style>
+:root{--serif:"Newsreader",Georgia,serif;--sans:"Figtree",system-ui,sans-serif;--bg:#F2F5FA;--card:#fff;--ink:#16213B;--mut:#5B6785;--line:#D5DCEA;--acc:#2D4BD3;--onacc:#fff;--hl:#FFE14D;--bad:#C93550;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1424;--card:#16203A;--ink:#E8ECF7;--mut:#9AA6C4;--line:#2A3658;--acc:#8FA6FF;--onacc:#0E1424;--bad:#FF7A8E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1424;--card:#16203A;--ink:#E8ECF7;--mut:#9AA6C4;--line:#2A3658;--acc:#8FA6FF;--onacc:#0E1424;--bad:#FF7A8E;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--sans)}
+main{max-width:660px;margin:0 auto;padding:20px 16px 48px}
+h1{font:600 clamp(28px,6vw,38px)/1.15 var(--serif);margin:12px 0 8px;letter-spacing:-.01em}
+.lede{color:var(--mut);margin:0 0 20px;max-width:56ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+button{font:inherit;cursor:pointer}
+.btn{background:var(--acc);color:var(--onacc);border:0;border-radius:10px;padding:12px 18px;font-weight:600}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--line);margin:14px 0 8px}
+.bar i{display:block}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;color:var(--mut)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.track{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.track i{display:block;height:100%;background:var(--acc);transition:width .3s}
+.top small{color:var(--mut);font-variant-numeric:tabular-nums}
+.link{background:none;border:0;color:var(--mut);text-decoration:underline;padding:4px}
+.ctx{white-space:pre-line;font-size:14px;color:var(--mut);border-left:3px solid var(--line);padding:2px 0 2px 12px;margin:0 0 14px}
+.tag{font-size:13px;color:var(--mut);margin:0 0 6px}
+.q{font:400 clamp(20px,4.6vw,25px)/1.4 var(--serif);margin:0 0 18px}
+.blank{display:inline-block;width:2.2em;border-bottom:2px solid var(--ink)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font:400 17px/1.4 var(--serif)}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt:disabled{cursor:default}
+.k{flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font:600 13px var(--sans);color:var(--mut)}
+.t{background:linear-gradient(var(--hl),var(--hl)) no-repeat 0 60%/0% 85%;padding:0 2px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .6s ease-out}
+.hl,.opt.ok .t{background-size:100% 85%;color:#16213B}
+.opt.ok{border-color:var(--hl)}
+.opt.ok .k{background:var(--hl);border-color:var(--hl);color:#16213B}
+.opt.bad{border-color:var(--bad)}
+.opt.bad .t{text-decoration:line-through;text-decoration-color:var(--bad);text-decoration-thickness:2px}
+.opt.bad .k{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt.dim{opacity:.55}
+.fb{margin:16px 0 0;font-weight:600}
+.fb.bad{color:var(--bad)}
+.miss{padding:0;list-style:none;margin:14px 0 0;display:grid;gap:10px}
+.miss li{border-top:1px solid var(--line);padding-top:10px;font:400 16px/1.6 var(--serif)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.brand{font:600 15px var(--sans);display:flex;align-items:center;gap:8px}
+.brand::before{content:"";width:18px;height:18px;border-radius:5px;background:var(--hl);box-shadow:inset 0 -6px 0 rgba(0,0,0,.12)}
+.th{background:none;border:1px solid var(--line);color:var(--ink);width:36px;height:36px;border-radius:50%;font-size:17px}
+mark{background:linear-gradient(var(--hl),var(--hl)) no-repeat 0 72%/100% 46%;color:inherit;padding:0 .08em;animation:swipe .9s .2s ease-out backwards}
+@keyframes swipe{from{background-size:0 46%}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes arc{from{stroke-dashoffset:var(--C)}}
+.card{animation:rise .28s ease-out;box-shadow:0 1px 2px rgba(22,33,59,.06),0 10px 26px -14px rgba(22,33,59,.25)}
+.opt{transition:transform .12s,border-color .15s}
+.opt:hover:not(:disabled){transform:translateY(-1px)}
+.opt:active:not(:disabled){transform:scale(.99)}
+.opt.bad{animation:shake .35s}
+.btn{transition:transform .12s,filter .15s}
+.btn:hover:not(:disabled){filter:brightness(1.1)}
+.btn:active:not(:disabled){transform:scale(.98)}
+.big{font-size:17px;padding:14px 26px;width:100%}
+.mh{display:flex;justify-content:space-between;align-items:baseline}
+.mh span{color:var(--mut);font-size:14px}
+.tip{color:var(--mut);font-size:13px;margin:14px 0 0}
+.chip{font-size:12px;font-weight:600;background:var(--hl);color:#16213B;border-radius:99px;padding:2px 9px;white-space:nowrap}
+.res{display:flex;gap:18px;align-items:center;margin:8px 0 18px}
+.res h1{margin:0 0 4px;font-size:clamp(22px,5vw,30px)}
+.res .lede{margin:0}
+.arc{animation:arc 1s .15s ease-out backwards}
+.pc{font:600 24px var(--serif);fill:var(--ink)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body><main><div class="hd"><span class="brand">Repaso de respuestas</span><button class="th" id="th" aria-label="Cambiar tema claro u oscuro">◐</button></div><div id="app"></div></main>
+<script>
+const Q=[{"id":"2-22","f":2,"n":22,"c":"Los ejercicios del 22 al 26 se basan en las siguientes lecturas. Ambas lecturas tratan sobre los grandes avances de la red de Internet y abundan en torno a sus orígenes, alcances y limitaciones.\nLectura A: Trata sobre los orígenes de la red en los años sesenta, su nacimiento en 1974 respondiendo al Pentágono, Vint Cerf, la World Wide Web y su expansión global.\nLectura B: Trata sobre los peligros de la red, los grupos antagónicos, las empresas comerciales, los problemas éticos y jurídicos, y el concepto del ciberboto.","q":"Una de las bondades que, según la lectura A, tiene la Internet es que ha hecho renacer la utopía de","o":["el perfeccionamiento de los conocimientos y la inteligencia.","la comunicación entre todos los profesores universitarios.","la armonía y la solidaridad entre todos los seres humanos.","la comunicación entre todos los países del mundo.","la ayuda de los países desarrollados a los subdesarrollados."],"a":2},{"id":"2-23","f":2,"n":23,"c":"Los ejercicios del 22 al 26 se basan en las siguientes lecturas. Ambas lecturas tratan sobre los grandes avances de la red de Internet y abundan en torno a sus orígenes, alcances y limitaciones.\nLectura A: Trata sobre los orígenes de la red en los años sesenta, su nacimiento en 1974 respondiendo al Pentágono, Vint Cerf, la World Wide Web y su expansión global.\nLectura B: Trata sobre los peligros de la red, los grupos antagónicos, las empresas comerciales, los problemas éticos y jurídicos, y el concepto del ciberboto.","q":"Según la lectura A, las computadoras se parecen al ser humano porque","o":["muchas veces suscitan entusiasmos y controversias.","han tenido un desarrollo vertiginoso.","se reproducen tan rápidamente como el ser humano.","está demostrado que se complementan automáticamente.","funcionan mejor cuando están unidas a otras."],"a":4},{"id":"2-24","f":2,"n":24,"c":"Los ejercicios del 22 al 26 se basan en las siguientes lecturas. Ambas lecturas tratan sobre los grandes avances de la red de Internet y abundan en torno a sus orígenes, alcances y limitaciones.\nLectura A: Trata sobre los orígenes de la red en los años sesenta, su nacimiento en 1974 respondiendo al Pentágono, Vint Cerf, la World Wide Web y su expansión global.\nLectura B: Trata sobre los peligros de la red, los grupos antagónicos, las empresas comerciales, los problemas éticos y jurídicos, y el concepto del ciberboto.","q":"Una de las características de la Internet, señalada en la lectura A, es que ha logrado","o":["que los estudiantes puedan comunicarse mejor entre ellos.","que los comerciantes puedan vender muchos más productos.","la comunicación entre todas las computadoras del planeta.","el acceso a todas las bibliotecas de las universidades.","un acercamiento cada vez mayor entre los países desarrollados."],"a":2},{"id":"2-25","f":2,"n":25,"c":"Los ejercicios del 22 al 26 se basan en las siguientes lecturas. Ambas lecturas tratan sobre los grandes avances de la red de Internet y abundan en torno a sus orígenes, alcances y limitaciones.\nLectura A: Trata sobre los orígenes de la red en los años sesenta, su nacimiento en 1974 respondiendo al Pentágono, Vint Cerf, la World Wide Web y su expansión global.\nLectura B: Trata sobre los peligros de la red, los grupos antagónicos, las empresas comerciales, los problemas éticos y jurídicos, y el concepto del ciberboto.","q":"Según la lectura B, una de las principales limitaciones de la Internet es que","o":["no puede llegar a todos los países del mundo.","cualquier persona puede colocar en ella material indeseable.","los gobiernos la quieren monopolizar para su beneficio.","ha contribuido a aumentar las desigualdades entre los seres humanos.","no está accesible aún su programa de cibervoto."],"a":3},{"id":"2-26","f":2,"n":26,"c":"Los ejercicios del 22 al 26 se basan en las siguientes lecturas. Ambas lecturas tratan sobre los grandes avances de la red de Internet y abundan en torno a sus orígenes, alcances y limitaciones.\nLectura A: Trata sobre los orígenes de la red en los años sesenta, su nacimiento en 1974 respondiendo al Pentágono, Vint Cerf, la World Wide Web y su expansión global.\nLectura B: Trata sobre los peligros de la red, los grupos antagónicos, las empresas comerciales, los problemas éticos y jurídicos, y el concepto del ciberboto.","q":"En la lectura A, se apoya la idea de que la Internet aporta a la unidad entre las comunidades; en la B, esta idea se","o":["refuerza mediante la reflexión sobre una comunicación libre.","ataca con argumentos sobre el control del medio por minorías privilegiadas.","promueve porque incrementa el desarrollo comercial.","desarrolla como un fenómeno de una «democracia directa».","comprueba con el ejemplo de la amplia instalación de líneas telefónicas."],"a":1},{"id":"3-27","f":3,"n":27,"c":"Los ejercicios del 27 al 30 se basan en la lectura sobre los vinos espumosos de Champagne (Francia).","q":"La palabra «derecho» (línea 4) se refiere a","o":["privilegio.","oportunidad.","capacidad.","preferencia.","obligación."],"a":0},{"id":"3-28","f":3,"n":28,"c":"Los ejercicios del 27 al 30 se basan en la lectura sobre los vinos espumosos de Champagne (Francia).","q":"Según la lectura, los requisitos para que un vino se denomine champaña son","o":["el tipo de fruto y de donde se obtiene.","la región y la calidad del vino.","el fruto y la acidez de la champaña.","la región y el ambiente donde se produce.","el origen y su capacidad burbujeante."],"a":3},{"id":"3-29","f":3,"n":29,"c":"Los ejercicios del 27 al 30 se basan en la lectura sobre los vinos espumosos de Champagne (Francia).","q":"La lectura trata sobre","o":["los requisitos para la elaboración de los vinos espumosos.","la importancia de la topografía para la elaboración de la champaña.","los hábitos alimenticios de los que toman champaña.","la importancia de la uva blanca para la producción de la champaña.","la meticulosidad de la elaboración de los vinos espumosos."],"a":1},{"id":"3-30","f":3,"n":30,"c":"Los ejercicios del 27 al 30 se basan en la lectura sobre los vinos espumosos de Champagne (Francia).","q":"De acuerdo con la lectura, la producción de la champaña","o":["depende del cuidado del viñedo.","toma en cuenta la calidad de la uva.","se elabora cuidadosamente.","depende del clima y el suelo.","proporciona un deleite al paladar."],"a":2},{"id":"4-1","f":4,"n":1,"c":"","q":"Terminaba aquel día el curso; había ya tenido lugar la distribución de ---- y llegaba la hora de ----.","o":["comidas .. las actuaciones","premios .. las despedidas","luces .. los sacrificios","papeles .. los pagos","juguetes .. los visitantes"],"a":1},{"id":"4-2","f":4,"n":2,"c":"","q":"Después de terminar la estructura básica del mueble, el ebanista todavía tuvo que ---- y ---- meticulosamente la madera para lograr el acabado requerido.","o":["medir .. amoldar","lustrar .. acomodar","aceitar .. adornar","recortar .. colocar","pulir .. pintar"],"a":4},{"id":"4-3","f":4,"n":3,"c":"","q":"El lenguaje es como un arca depositaria de la ---- de un pueblo.","o":["fama","labor","valentía","existencia","situación"],"a":3},{"id":"4-4","f":4,"n":4,"c":"","q":"La justicia engrandece a la nación, pero la ---- afrenta a los pueblos.","o":["competencia","economía","desgracia","maldad","bondad"],"a":3},{"id":"4-5","f":4,"n":5,"c":"","q":"El hombre de hoy no es el de ayer ni el de mañana; así como ----, deja que ---- el ideal que te forjas de ti mismo.","o":["trabajas .. trabaje","piensas .. piense","inventas .. invente","cambias .. cambie","laboras .. labore"],"a":3},{"id":"4-6","f":4,"n":6,"c":"","q":"El escritor siente que su oficio se torna más y más en una ----; en una manera de actuar sobre el ---- a través de sus obras.","o":["dedicación .. necesitado","misión .. entorno","diversión .. pueblo","recreación .. grupo","distracción .. país"],"a":1},{"id":"4-7","f":4,"n":7,"c":"","q":"Un buen maestro debe ---- el espíritu de cooperación y el amor por los seres humanos.","o":["sustentar","propiciar","promulgar","crear","producir"],"a":1},{"id":"5-8","f":5,"n":8,"c":"","q":"El ---- y el ---- expansivo de las grandes metrópolis pueden dar a la lengua un ámbito nacional y hasta internacional.","o":["prestigio .. carácter","volumen .. contraste","cultivo .. tránsito","interés .. estudio","reconocimiento .. estigma"],"a":0},{"id":"5-9","f":5,"n":9,"c":"","q":"El protagonista de la obra es tan ---- que no podemos predecir lo que hará en un momento dado.","o":["voluble","sistemático","minucioso","práctico","ingenuo"],"a":0},{"id":"6-11","f":6,"n":11,"c":"Lectura sobre Abraham Lincoln.","q":"¿Cuál de las siguientes opciones describe MEJOR a Lincoln en la toma de decisiones?","o":["Firme","Perseverante","Magnético","Severo","Respetuoso"],"a":0},{"id":"6-12","f":6,"n":12,"c":"Lectura sobre Abraham Lincoln.","q":"Según la lectura anterior, la característica sobresaliente de Lincoln fue","o":["la inteligencia.","el ingenio.","la expresividad.","la bondad.","la elegancia."],"a":1},{"id":"6-13","f":6,"n":13,"c":"Lectura sobre Abraham Lincoln.","q":"En la lectura anterior, la palabra «soslayar» (línea 20) significa","o":["evadir.","entender.","aceptar.","olvidar.","negar."],"a":0},{"id":"7-14","f":7,"n":14,"c":"Lectura sobre Abraham Lincoln.","q":"La idea que predomina en la lectura anterior es una descripción de Lincoln en su aspecto","o":["intelectual.","físico.","moral.","social.","cultural."],"a":2},{"id":"7-15","f":7,"n":15,"c":"Lectura sobre Abraham Lincoln.","q":"Según la lectura anterior, la base principal para la práctica de los principios que orientaron a Lincoln fue","o":["el respeto.","la experiencia.","el humor.","la justicia.","la diplomacia."],"a":0},{"id":"8-16","f":8,"n":16,"c":"Lecturas A y B sobre las ruinas de Machu Picchu.","q":"La lectura A presenta las ruinas de Macchu Picchu desde un punto de vista poético mientras que en la lectura B, se presentan desde el punto de vista","o":["mítico.","emotivo.","glorioso.","histórico.","intrigante."],"a":3},{"id":"8-17","f":8,"n":17,"c":"Lecturas A y B sobre las ruinas de Machu Picchu.","q":"De acuerdo con la lectura B, podemos inferir que la ciudad de Macchu Picchu representa","o":["el descubrimiento arqueológico más importante de América.","uno de los centros de turismo universal.","un hallazgo arqueológico sin precedentes.","un testimonio del antiguo imperio inca.","un testimonio de los monumentos de piedra del pasado."],"a":3},{"id":"8-18","f":8,"n":18,"c":"Lecturas A y B sobre las ruinas de Machu Picchu.","q":"En la lectura B las líneas 21-23 indican que las ruinas de Macchu Picchu","o":["fueron descubiertas por un explorador norteamericano.","se hallan muy lejos de la civilización occidental.","yacían ocultas en lo alto de las montañas.","son de difícil acceso para todo visitante.","eran conocidas por todos los habitantes locales."],"a":2},{"id":"8-19","f":8,"n":19,"c":"Lecturas A y B sobre las ruinas de Machu Picchu.","q":"Ambas lecturas coinciden en que es importante","o":["seguir descubriendo ciudades perdidas.","preservar el legado de nuestros antepasados.","ayudar a reconstruir la ciudad de Macchu Picchu.","promover el turismo en Macchu Picchu.","investigar el origen de la ciudad perdida."],"a":1},{"id":"9-20","f":9,"n":20,"c":"Lectura sobre matemáticas y civilizaciones antiguas (griegos, romanos, babilonios) y Lectura A sobre mitos de religiones antiguas y gatos.","q":"De acuerdo con la lectura, lo que distinguió a los babilonios de los griegos y de los romanos fue","o":["el desarrollo de la trigonometría.","el desinterés por el cálculo de grandes sumas.","la necesidad de encontrar respuestas.","el deseo de conquistar territorios.","la complejidad de sus cálculos."],"a":2},{"id":"9-21","f":9,"n":21,"c":"Lectura sobre matemáticas y civilizaciones antiguas (griegos, romanos, babilonios) y Lectura A sobre mitos de religiones antiguas y gatos.","q":"Según la lectura, la relación de preocupación y desinterés por calcular grandes sumas equivale a","o":["estudio y conocimiento.","lectura y razonamiento.","análisis e investigación.","éxito y fracaso.","sabiduría y frustración."],"a":3},{"id":"10-24","f":10,"n":24,"c":"Lectura B sobre los sueños, el alba y la noche.","q":"En la lectura B, la palabra «desgarran» (línea 40) significa","o":["suprimen.","destrozan.","aniquilan.","desaparecen.","empujan."],"a":0},{"id":"10-25","f":10,"n":25,"c":"Lectura B sobre los sueños, el alba y la noche.","q":"En la lectura B, la frase «la lozanía del alba es un momento de revelación» (líneas 51-52) indica que","o":["durante el día se piensa mejor que en la noche.","la luz solar es fuente de energía terrestre.","los héroes nacen saludables y robustos al amanecer.","la frescura matutina contribuye a encontrar héroes.","en el instante del amanecer se descubren contestaciones."],"a":4},{"id":"10-26","f":10,"n":26,"c":"Lectura B sobre los sueños, el alba y la noche.","q":"En la lectura B, la frase «la luz de la luna es suave» (línea 71) contrasta con la lectura A respecto a","o":["la idea del amor por los animales.","los ciclos mayores y menores de los dioses.","la identificación mística con las divinidades.","la pasión con que adoraban al sol.","el culto que rodeaba las danzas rituales."],"a":2}];
+const A=document.getElementById('app'),$=s=>A.querySelector(s),LS='ak-sr-v1',L='ABCDE',R=document.documentElement;
+let st={},meta={},queue=[],total=0,done=0,right=0,streak=0,best=0,tried=new Set(),missed=[],cur,ord,locked;
+const base=R.dataset.theme;try{const r=JSON.parse(localStorage.getItem(LS)||'{}');st=r.st||{};meta=r.meta||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(LS,JSON.stringify({st,meta}))}catch(e){}};
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const blanks=s=>esc(s).replace(/----/g,'<i class="blank"></i>');
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const thb=document.getElementById('th'),ICON={auto:'◐',light:'☀',dark:'☾'},NAME={auto:'automático',light:'claro',dark:'oscuro'};
+const applyTh=()=>{const m=meta.th||'auto';if(m==='auto'){if(base)R.dataset.theme=base;else R.removeAttribute('data-theme')}else R.dataset.theme=m;thb.textContent=ICON[m];thb.title='Tema: '+NAME[m];thb.setAttribute('aria-label','Tema: '+NAME[m]+'. Pulsa para cambiar')};
+thb.onclick=()=>{meta.th={auto:'light',light:'dark',dark:'auto'}[meta.th||'auto'];save();applyTh()};
+applyTh();
+
+function acts(){const g=$('#go'),h=$('#hm');if(g)g.onclick=start;if(h)h.onclick=home}
+
+function home(){
+ const n=[0,0,0,0],col=['var(--line)','var(--bad)','var(--acc)','var(--hl)'],nm=['Nuevas','Aprendiendo','Sólidas','Dominadas'];
+ Q.forEach(q=>{const b=(st[q.id]||{}).b||0;n[b==0?0:b<3?1:b<5?2:3]++});
+ A.innerHTML=`<h1>Aprende las <mark>respuestas</mark>, no su posición.</h1><p class="lede">${Q.length} preguntas de tu clave. El orden de las preguntas y de las opciones cambia cada vez.</p>
+ <div class="card"><div class="mh"><b>Dominio</b><span>${n[3]} de ${Q.length} dominadas</span></div>
+ <div class="bar">${n.map((v,i)=>`<i style="width:${v/Q.length*100}%;background:${col[i]}"></i>`).join('')}</div>
+ <div class="leg">${n.map((v,i)=>`<span><span class="sw" style="background:${col[i]}"></span>${nm[i]} ${v}</span>`).join('')}</div>
+ <div class="row"><button class="btn big" id="go">Empezar a practicar</button></div>
+ <p class="tip">Responde con las teclas de la A a la E o del 1 al 5, y pulsa Enter para la siguiente tarjeta. Cinco aciertos seguidos al primer intento dominan una pregunta.</p></div>
+ <p><button class="link" id="rs">Reiniciar progreso</button></p>`;
+ acts();
+ let c=0;$('#rs').onclick=e=>{if(c++){st={};meta={th:meta.th};save();home()}else e.target.textContent='Haz clic otra vez para borrar todo el progreso'};
+}
+
+function start(){
+ const pool=Q.map(q=>q.id);let n=0;
+ do{queue=shuf(pool)}while(n++<30&&queue.join()===meta.qo);
+ meta.qo=queue.join();save();
+ total=queue.length;done=right=streak=best=0;tried=new Set();missed=[];next();
+}
+
+function next(){
+ if(!queue.length)return end();
+ const id=queue.shift();cur=Q.find(q=>q.id===id);locked=false;
+ const s=st[id]=st[id]||{b:0,oo:[]},p=s.oo||[],idx=cur.o.map((_,i)=>i);
+ let n=0,o;do{o=shuf(idx)}while(n++<60&&p.length==o.length&&(o.join()===p.join()||o.indexOf(cur.a)===p.indexOf(cur.a)));
+ s.oo=ord=o;save();
+ A.innerHTML=`<div class="top"><button class="link" id="hm">Salir</button><div class="track"><i style="width:${done/total*100}%"></i></div>${streak>1?`<span class="chip">${streak} seguidas</span>`:''}<small>${done}/${total}</small></div>
+ <div class="card">${cur.c?`<p class="ctx">${esc(cur.c)}</p>`:''}<p class="tag">Pregunta ${cur.n}, archivo ${cur.f}</p><h2 class="q">${blanks(cur.q)}</h2>
+ <div class="opts">${o.map((k,i)=>`<button class="opt" data-i="${i}"><span class="k">${L[i]}</span><span class="t">${esc(cur.o[k])}</span></button>`).join('')}</div><div id="fb" aria-live="polite"></div></div>`;
+ acts();
+ A.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(+b.dataset.i));
+}
+
+function pick(i){
+ if(locked)return;locked=true;
+ const ok=ord[i]===cur.a,s=st[cur.id];
+ A.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.add(ord[j]===cur.a?'ok':j===i?'bad':'dim')});
+ if(!tried.has(cur.id)){tried.add(cur.id);if(ok){right++;s.b=Math.min((s.b||0)+1,5)}else{s.b=1;missed.push(cur)}}
+ if(ok){done++;best=Math.max(best,++streak)}else{streak=0;queue.splice(Math.min(3,queue.length),0,cur.id)}
+ save();
+ $('#fb').innerHTML=`<div class="row"><button class="btn" id="nx">${queue.length?'Siguiente':'Ver resultados'}</button></div>`;
+ $('#nx').onclick=next;$('#nx').focus();
+}
+
+function end(){
+ const f=right/total,C=2*Math.PI*44;
+ A.innerHTML=`<div class="res"><svg viewBox="0 0 100 100" width="112" height="112" style="--C:${C}"><circle cx="50" cy="50" r="44" fill="none" stroke="var(--line)" stroke-width="9"/><circle class="arc" cx="50" cy="50" r="44" fill="none" stroke="var(--hl)" stroke-width="9" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-f)}" transform="rotate(-90 50 50)"/><text x="50" y="58" text-anchor="middle" class="pc">${Math.round(f*100)}%</text></svg>
+ <div><h1>${right} de ${total} al primer intento</h1><p class="lede">${missed.length?missed.length+(missed.length>1?' falladas':' fallada')+', abajo. Mejor racha: '+best+'.':'Ronda perfecta. Mejor racha: '+best+'.'}</p></div></div>
+ ${missed.length?`<div class="card"><b>Para repasar</b><ul class="miss">${missed.map(q=>`<li>${blanks(q.q)}<br><span class="t hl">${esc(q.o[q.a])}</span></li>`).join('')}</ul></div>`:''}
+ <div class="row"><button class="btn" id="go">Practicar de nuevo</button><button class="btn ghost" id="hm">Inicio</button></div>`;
+ acts();
+}
+
+addEventListener('keydown',e=>{
+ if(e.ctrlKey||e.metaKey||e.altKey||locked===undefined||!$('.opt')||locked)return;
+ const i=e.key.length==1?'ABCDE'.indexOf(e.key.toUpperCase()):-1,d=+e.key;
+ if(i>=0)pick(i);else if(d>=1&&d<=5)pick(d-1);
+});
+home();
+</script></body></html>
